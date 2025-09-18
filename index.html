@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GeoOsintDoctor - Анализ фото</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .container { background: #f5f5f5; padding: 30px; border-radius: 10px; }
+        input[type="file"] { margin: 20px 0; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .error { color: red; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 GeoOsintDoctor</h1>
+        <p>Загрузите фото для анализа метаданных EXIF</p>
+        
+        <form method="POST" action="/analyze" enctype="multipart/form-data">
+            <input type="file" name="photo" accept="image/*" required>
+            <br>
+            <button type="submit">Анализировать фото</button>
+        </form>
+        
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        
+        <div style="margin-top: 30px; font-size: 14px; color: #666;">
+            <p><strong>Что анализируется:</strong></p>
+            <ul>
+                <li>📷 Устройство съемки</li>
+                <li>⏰ Дата и время съемки</li>
+                <li>📍 GPS координаты (если есть)</li>
+                <li>🌍 Страна, город, адрес</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
