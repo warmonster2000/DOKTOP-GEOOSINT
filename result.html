@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты анализа - GeoOsintDoctor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 50px auto; padding: 20px; }
+        .result-container { background: #f8f9fa; padding: 30px; border-radius: 10px; border-left: 5px solid #007bff; }
+        .info-item { margin: 15px 0; padding: 10px; background: white; border-radius: 5px; }
+        .label { font-weight: bold; color: #333; }
+        .value { color: #007bff; }
+        .back-btn { background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>📊 Результаты анализа фото</h1>
+    
+    <div class="result-container">
+        <div class="info-item">
+            <span class="label">🌍 Страна:</span>
+            <span class="value">{{ country }}</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="label">🏙️ Город:</span>
+            <span class="value">{{ city }}</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="label">📍 Адрес:</span>
+            <span class="value">{{ address }}</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="label">⏰ Время съемки:</span>
+            <span class="value">{{ photo_time }}</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="label">📷 Устройство:</span>
+            <span class="value">{{ device }}</span>
+        </div>
+        
+        {% if make != 'Неизвестно' %}
+        <div class="info-item">
+            <span class="label">🏭 Производитель:</span>
+            <span class="value">{{ make }}</span>
+        </div>
+        {% endif %}
+        
+        {% if model != 'Неизвестно' %}
+        <div class="info-item">
+            <span class="label">📱 Модель:</span>
+            <span class="value">{{ model }}</span>
+        </div>
+        {% endif %}
+    </div>
+    
+    <a href="/" class="back-btn">🔄 Загрузить другое фото</a>
+    
+    <div style="margin-top: 30px; font-size: 12px; color: #999;">
+        <p><strong>Примечание:</strong> Точность определения местоположения зависит от наличия GPS данных в EXIF.</p>
+    </div>
+</body>
+</html>
